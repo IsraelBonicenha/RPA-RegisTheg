@@ -1,0 +1,32 @@
+# =================================
+# .gitignore gerado pelo ChatGPT
+# =================================
+
+# Build
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# NuGet
+packages/
+
+# Configuração do Ambiente
+*.config
+appsettings.json
+appsettings.Development.json
+secrets.json
+
+# Logs e Temporários
+*.log
+*.tmp
+*.cache
+
+# Windows
+Thumbs.db
+Desktop.ini
