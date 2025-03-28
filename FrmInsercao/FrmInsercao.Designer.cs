@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             btnClose = new FontAwesome.Sharp.IconPictureBox();
             btnMaximize = new FontAwesome.Sharp.IconPictureBox();
             btnMinimize = new FontAwesome.Sharp.IconPictureBox();
@@ -194,37 +194,37 @@
             dtgPrincipal.BackgroundColor = Color.DarkGray;
             dtgPrincipal.BorderStyle = BorderStyle.Fixed3D;
             dtgPrincipal.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.DimGray;
-            dataGridViewCellStyle5.SelectionBackColor = Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = Color.DimGray;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dtgPrincipal.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.DimGray;
+            dataGridViewCellStyle1.SelectionBackColor = Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = Color.DimGray;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dtgPrincipal.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dtgPrincipal.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dtgPrincipal.Columns.AddRange(new DataGridViewColumn[] { colId, ColHashtag, ColValor, ColCriterio, colStatus });
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.LightGray;
-            dataGridViewCellStyle7.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = Color.DimGray;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
-            dtgPrincipal.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.LightGray;
+            dataGridViewCellStyle3.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.DimGray;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dtgPrincipal.DefaultCellStyle = dataGridViewCellStyle3;
             dtgPrincipal.EnableHeadersVisualStyles = false;
             dtgPrincipal.GridColor = Color.DimGray;
             dtgPrincipal.Location = new Point(0, 88);
             dtgPrincipal.Name = "dtgPrincipal";
             dtgPrincipal.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.White;
-            dataGridViewCellStyle8.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = Color.DimGray;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
-            dtgPrincipal.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.DimGray;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dtgPrincipal.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dtgPrincipal.RowHeadersVisible = false;
             dtgPrincipal.RowTemplate.Height = 21;
             dtgPrincipal.Size = new Size(900, 262);
@@ -233,8 +233,8 @@
             // colId
             // 
             colId.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.TopCenter;
-            colId.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.TopCenter;
+            colId.DefaultCellStyle = dataGridViewCellStyle2;
             colId.FillWeight = 25.38071F;
             colId.HeaderText = "ID";
             colId.Name = "colId";
@@ -258,6 +258,7 @@
             // 
             ColCriterio.FillWeight = 118.654823F;
             ColCriterio.HeaderText = "Critério";
+            ColCriterio.Items.AddRange(new object[] { "C", "I", "NC" });
             ColCriterio.Name = "ColCriterio";
             ColCriterio.Resizable = DataGridViewTriState.True;
             ColCriterio.SortMode = DataGridViewColumnSortMode.Automatic;
@@ -267,6 +268,7 @@
             // 
             colStatus.FillWeight = 118.654823F;
             colStatus.HeaderText = "Status";
+            colStatus.Items.AddRange(new object[] { "A", "E", "F", "N" });
             colStatus.Name = "colStatus";
             colStatus.Resizable = DataGridViewTriState.True;
             colStatus.SortMode = DataGridViewColumnSortMode.Automatic;
@@ -467,11 +469,6 @@
         private Label lblPesquisar;
         private Label lblDicas;
         private DataGridView dtgPrincipal;
-        private DataGridViewTextBoxColumn colId;
-        private DataGridViewTextBoxColumn ColHashtag;
-        private DataGridViewTextBoxColumn ColValor;
-        private DataGridViewComboBoxColumn ColCriterio;
-        private DataGridViewComboBoxColumn colStatus;
         private GroupBox gpbStatus;
         private Label lblStatusA;
         private Label lblStatusE;
@@ -483,5 +480,10 @@
         private Label lblIgual;
         private Button btnProcessar;
         private Button btnFechar;
+        private DataGridViewTextBoxColumn colId;
+        private DataGridViewTextBoxColumn ColHashtag;
+        private DataGridViewTextBoxColumn ColValor;
+        private DataGridViewComboBoxColumn ColCriterio;
+        private DataGridViewComboBoxColumn colStatus;
     }
 }
