@@ -420,6 +420,7 @@
             btnFechar.TabIndex = 15;
             btnFechar.Text = "Fechar";
             btnFechar.UseVisualStyleBackColor = false;
+            btnFechar.Click += btnFechar_Click;
             // 
             // FrmInsercao
             // 

@@ -1,12 +1,17 @@
+using FrmInsercao.Utils;
+
 namespace FrmInsercao
 {
     public partial class FrmInsercao : Form
     {
+        readonly DtgManager _dtgManager = new DtgManager();
+        readonly int _linesDtgInicial;
+
         public FrmInsercao()
         {
             InitializeComponent();
             dtgPrincipal.AllowUserToAddRows = true;
-            // O comando acima foi para a correção de um bug
+            _linesDtgInicial = dtgPrincipal.RowCount;
         }
 
         private void FrmInsercao_Load(object sender, EventArgs e)
@@ -51,6 +56,7 @@ namespace FrmInsercao
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            _dtgManager.VeriricarAlteracaoDtg(_linesDtgInicial, dtgPrincipal.RowCount);
             Application.Exit();
         }
         #endregion
@@ -114,5 +120,11 @@ namespace FrmInsercao
             this.WindowState = FormWindowState.Minimized;
         }
         #endregion
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            _dtgManager.VeriricarAlteracaoDtg(_linesDtgInicial, dtgPrincipal.RowCount);
+            Application.Exit();
+        }
     }
 }
