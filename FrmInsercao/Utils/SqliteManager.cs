@@ -62,13 +62,26 @@ namespace FrmInsercao.Utils
                 {
                     connection.Open();
                 }
-                catch (Exception ex) { MessageBox.Show($"Erro ao se conectar com o banco de dados: {ex.Message}"); }
+                catch (Exception ex) { MessageBox.Show($"Erro ao salvar alterações na tabela: {ex.Message}"); }
             };
         }
 
         private static void ClearTableBancoDados()
         {
+            using (var connection = GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    using (var command = connection.CreateCommand())
+                    {
+                        command.CommandText = @"DELETE FROM principal;";
 
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex) { MessageBox.Show($"Erro ao limpar tabela: {ex.Message}"); }
+            }
         }
     }
 }
