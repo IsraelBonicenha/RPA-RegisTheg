@@ -6,6 +6,7 @@ namespace FrmInsercao
     {
         readonly DtgManager _dtgManager = new DtgManager();
         readonly int _linesDtgInicial;
+        public static DataGridView dtg;
 
         public FrmInsercao()
         {
@@ -56,8 +57,11 @@ namespace FrmInsercao
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            _dtgManager.VeriricarAlteracaoDtg(_linesDtgInicial, dtgPrincipal.RowCount);
-            Application.Exit();
+            dtg = dtgPrincipal;
+            bool sucesso = _dtgManager.VeriricarAlteracaoDtg(_linesDtgInicial, dtgPrincipal.RowCount);
+
+            if (sucesso)
+                Application.Exit();
         }
         #endregion
 
@@ -123,8 +127,11 @@ namespace FrmInsercao
 
         private void btnFechar_Click(object sender, EventArgs e)
         {
-            _dtgManager.VeriricarAlteracaoDtg(_linesDtgInicial, dtgPrincipal.RowCount);
-            Application.Exit();
+            dtg = dtgPrincipal;
+            bool sucesso = _dtgManager.VeriricarAlteracaoDtg(_linesDtgInicial, dtgPrincipal.RowCount);
+
+            if(sucesso)
+                Application.Exit();
         }
     }
 }

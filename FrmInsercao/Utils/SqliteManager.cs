@@ -1,5 +1,6 @@
 ﻿using System.Configuration;
 using System.Data.SQLite;
+using System.Text;
 
 namespace FrmInsercao.Utils
 {
@@ -51,8 +52,7 @@ namespace FrmInsercao.Utils
             }
         }
 
-        // TERMINAR ESSE MÉTODO
-        public static void SalvarAlteracoesTable()
+        public static bool SalvarAlteracoesTable()
         {
             ClearTableBancoDados();
 
@@ -61,8 +61,74 @@ namespace FrmInsercao.Utils
                 try
                 {
                     connection.Open();
+
+                    bool primeiraLinha = true;
+                    StringBuilder queryBuild = new StringBuilder();
+                    queryBuild.AppendLine(@"INSERT INTO principal (p_id, p_hash, p_valores, p_criterio, p_status, p_dataCadastro) VALUES");
+                    foreach (DataGridViewRow row in FrmInsercao.dtg.Rows)
+                    {
+
+                        string id = row.Cells[0].Value?.ToString().ToUpper() ?? "";
+                        string hash = row.Cells[1].Value?.ToString().ToUpper() ?? "";
+                        string valores = row.Cells[2].Value?.ToString().ToUpper() ?? "";
+                        string criterio = row.Cells[3].Value?.ToString().ToUpper() ?? "";
+                        string status = row.Cells[4].Value?.ToString().ToUpper() ?? "";
+                        var data = DateTime.Now.Date;
+
+                        if (row.IsNewRow || status == "E")
+                            continue;
+
+                        if (!Guid.TryParse(id, out Guid _))
+                            id = Guid.NewGuid().ToString();
+
+                        // Validação para o campo 'hash'
+                        if (string.IsNullOrEmpty(hash))
+                        {
+                            MessageBox.Show("Erro: Hash não pode ser vazio", "Erro", MessageBoxButtons.OK);
+                            return false;  // Interrompe o processo
+                        }
+
+                        // Validação para o campo 'valores'
+                        if (string.IsNullOrEmpty(valores))
+                        {
+                            MessageBox.Show("Erro: Valores não podem ser vazios", "Erro", MessageBoxButtons.OK);
+                            return false;  // Interrompe o processo
+                        }
+
+                        // Validação para o campo 'criterio'
+                        if (string.IsNullOrEmpty(criterio))
+                        {
+                            MessageBox.Show("Erro: Critério não pode ser vazio", "Erro", MessageBoxButtons.OK);
+                            return false;  // Interrompe o processo
+                        }
+
+                        // Validação para o campo 'status'
+                        if (string.IsNullOrEmpty(status))
+                        {
+                            MessageBox.Show("Erro: Status não pode ser vazio", "Erro", MessageBoxButtons.OK);
+                            return false;  // Interrompe o processo
+                        }
+
+                        if (!primeiraLinha)
+                            queryBuild.AppendLine(",");
+
+                        queryBuild.AppendLine($"('{id}', '{hash}', '{valores}', '{criterio}', '{status}', '{data:yyyy-MM-dd}')");
+
+                        primeiraLinha = false;
+                    }
+
+
+                    string query = queryBuild.ToString();
+
+                    using (var command = connection.CreateCommand())
+                    {
+                        command.CommandText = query;
+                        command.ExecuteNonQuery();
+                    }
+
+                    return true;
                 }
-                catch (Exception ex) { MessageBox.Show($"Erro ao salvar alterações na tabela: {ex.Message}"); }
+                catch (Exception ex) { MessageBox.Show($"Erro ao salvar alterações na tabela: {ex.Message}"); return false; }
             };
         }
 
