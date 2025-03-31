@@ -4,6 +4,7 @@ namespace FrmInsercao
 {
     internal static class Program
     {
+        [STAThread]
         static void Main()
         {
             ConfigrarAplicationSQLite();
