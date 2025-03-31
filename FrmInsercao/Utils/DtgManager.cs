@@ -10,7 +10,7 @@
                     "CONFIRMAÇÃO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (respostaUser == DialogResult.Yes) { }
-                //SalvarAlteracoesTable();
+                //SqliteManager.SalvarAlteracoesTable();
             }
         }
     }

@@ -54,6 +54,8 @@ namespace FrmInsercao.Utils
         // TERMINAR ESSE MÉTODO
         public static void SalvarAlteracoesTable()
         {
+            ClearTableBancoDados();
+
             using (var connection = GetConnection())
             {
                 try
@@ -62,6 +64,11 @@ namespace FrmInsercao.Utils
                 }
                 catch (Exception ex) { MessageBox.Show($"Erro ao se conectar com o banco de dados: {ex.Message}"); }
             };
+        }
+
+        private static void ClearTableBancoDados()
+        {
+
         }
     }
 }
