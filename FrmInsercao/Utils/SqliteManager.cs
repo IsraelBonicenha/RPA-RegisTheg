@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using System.Data;
 using System.Data.SQLite;
 using System.Text;
 
@@ -38,7 +39,7 @@ namespace FrmInsercao.Utils
                         command.CommandText = @"CREATE TABLE IF NOT EXISTS principal(
                                                 p_id TEXT, 
                                                 p_hash TEXT NOT NULL, 
-                                                P_valores TEXT, 
+                                                p_valores TEXT, 
                                                 p_criterio TEXT NOT NULL,
                                                 p_status TEXT NOT NULL,
                                                 p_dataCadastro DATE
@@ -149,5 +150,38 @@ namespace FrmInsercao.Utils
                 catch (Exception ex) { MessageBox.Show($"Erro ao limpar tabela: {ex.Message}"); }
             }
         }
+
+        public static void CarregarDadosGrid()
+        {
+            DataGridView dtg = FrmInsercao.dtg;
+            using (var connection = GetConnection())
+            {
+                DataTable dt = new DataTable();
+                try
+                {
+                    connection.Open();
+
+                    using (var command = connection.CreateCommand())
+                    {
+                        command.CommandText = "SELECT * FROM principal";
+                        SQLiteDataAdapter da = new SQLiteDataAdapter(command);
+                        da.Fill(dt);
+
+                        dtg.Columns["colID"].DataPropertyName = "p_id";
+                        dtg.Columns["ColHashtag"].DataPropertyName = "p_hash";
+                        dtg.Columns["ColValor"].DataPropertyName = "P_valores";
+                        dtg.Columns["ColCriterio"].DataPropertyName = "p_criterio";
+                        dtg.Columns["colStatus"].DataPropertyName = "p_status";
+
+                        dtg.DataSource = dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao carregar a tabela: {ex.Message}");
+                }
+            }
+        }
+
     }
 }

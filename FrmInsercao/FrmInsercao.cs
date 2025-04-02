@@ -12,6 +12,8 @@ namespace FrmInsercao
         {
             InitializeComponent();
             dtgPrincipal.AllowUserToAddRows = true;
+            dtg = dtgPrincipal;
+            SqliteManager.CarregarDadosGrid();
             _linesDtgInicial = dtgPrincipal.RowCount;
         }
 
