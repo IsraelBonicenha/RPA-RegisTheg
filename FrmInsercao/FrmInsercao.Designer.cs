@@ -214,7 +214,7 @@
             dtgPrincipal.DefaultCellStyle = dataGridViewCellStyle3;
             dtgPrincipal.EnableHeadersVisualStyles = false;
             dtgPrincipal.GridColor = Color.DimGray;
-            dtgPrincipal.Location = new Point(0, 88);
+            dtgPrincipal.Location = new Point(0, 87);
             dtgPrincipal.Name = "dtgPrincipal";
             dtgPrincipal.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -229,6 +229,7 @@
             dtgPrincipal.RowTemplate.Height = 21;
             dtgPrincipal.Size = new Size(900, 262);
             dtgPrincipal.TabIndex = 8;
+            dtgPrincipal.DefaultValuesNeeded += dtgPrincipal_DefaultValuesNeeded;
             // 
             // colId
             // 

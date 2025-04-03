@@ -135,5 +135,10 @@ namespace FrmInsercao
             if(sucesso)
                 Application.Exit();
         }
+
+        private void dtgPrincipal_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        {
+            e.Row.Cells["colStatus"].Value = "N";
+        }
     }
 }
