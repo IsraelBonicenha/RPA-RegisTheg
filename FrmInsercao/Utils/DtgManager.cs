@@ -11,8 +11,8 @@
                 var respostaUser = MessageBox.Show("Deseja salvar as alterações feitas na tabela?",
                     "CONFIRMAÇÃO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if (respostaUser == DialogResult.Yes) { }
-                sucesso = SqliteManager.SalvarAlteracoesTable();
+                if (respostaUser == DialogResult.Yes)
+                    sucesso = SqliteManager.SalvarAlteracoesTable();
             }
 
             return sucesso;
